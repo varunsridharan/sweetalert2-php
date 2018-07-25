@@ -19,7 +19,7 @@
 </p>
 ---
 
-:point_right: * This custom PHP Lib depends on SweetAlert2 JS Lib and this php class i just a JS code builder.*
+:point_right: **This custom PHP Lib depends on SweetAlert2 JS Lib and this php class i just a JS code builder.**
 
 ---
 
