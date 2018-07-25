@@ -17,7 +17,11 @@
     See SweetAlert2 in action ↗
   </a>
 </p>
+---
 
+:point_right: * This custom PHP Lib depends on SweetAlert2 JS Lib and this php class i just a JS code builder.*
+
+---
 
 Usage
 -----
