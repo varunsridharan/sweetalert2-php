@@ -30,8 +30,90 @@ Usage
 require_once 'sweetalert2.php';
 ```
 
-#### Success Notice
+####  Notice
 ```php
-$data = swal_success('Success','Your Email is sent');
+$data = swal('Success','Your Email is sent','success');
 echo '<script>'.$data.'</script>';
 ```
+
+#### Notice With Timer
+```php
+$data = swal('Success','Your Email is sent','success',array('auto_close' => 5000));
+echo '<script>'.$data.'</script>';
+```
+
+Useful Functions
+---
+
+#### Simple Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param string $type
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal( $title = '', $content = '', $type = 'success', $args = array() )
+```
+
+#### Success Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal_success( $title = '', $content = '', $args = array() )
+```
+
+#### Info Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal_info( $title = '', $content = '', $args = array() )
+```
+
+#### Question Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal_question( $title = '', $content = '', $args = array() ) 
+```
+
+#### Warning Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal_warning( $title = '', $content = '', $args = array() )
+```
+
+#### Error Notice
+```php
+/**
+ * @param string $title
+ * @param string $content
+ * @param array  $args
+ *
+ * @return \SweetAlert2
+ */
+ swal_error( $title = '', $content = '', $args = array() )
+ ```
