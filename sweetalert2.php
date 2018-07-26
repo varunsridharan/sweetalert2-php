@@ -19,8 +19,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.0
 	 */
-	class SweetAlert2 {
-
+	class SweetAlert2 implements \JsonSerializable {
 		/**
 		 * json_data
 		 *
@@ -48,6 +47,13 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		 * @var array
 		 */
 		protected $then = array();
+
+		/**
+		 * @return mixed|string
+		 */
+		public function jsonSerialize() {
+			return $this->render();
+		}
 
 		/**
 		 * SweetAlert2 constructor.
