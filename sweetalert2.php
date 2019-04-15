@@ -9,9 +9,9 @@
  * @license GPLV3 Or Greater (https://www.gnu.org/licenses/gpl-3.0.txt)
  */
 
-if ( ! class_exists( 'SweatAlert2' ) ) {
+if ( ! class_exists( 'SweetAlert2' ) ) {
 	/**
-	 * Class SweatAlert2
+	 * Class SweetAlert2
 	 *
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.0
@@ -83,7 +83,7 @@ if ( ! class_exists( 'SweatAlert2' ) ) {
 	 * @method question
 	 * @method info
 	 */
-	class SweatAlert2 implements \JsonSerializable {
+	class SweetAlert2 implements \JsonSerializable {
 		/**
 		 * Stores Default Values
 		 *
@@ -219,7 +219,7 @@ if ( ! class_exists( 'SweatAlert2' ) ) {
 		 * @param string $text
 		 * @param string $type
 		 *
-		 * @return \SweatAlert2
+		 * @return \SweetAlert2
 		 */
 		public function swal( $title = '', $text = '', $type = 'success' ) {
 			return new self( $title, $text, $type );
@@ -446,7 +446,7 @@ if ( ! class_exists( 'SweatAlert2' ) ) {
 	 * @return \SweetAlert2
 	 */
 	function swal2( $title = '', $content = '', $type = 'success' ) {
-		return new \SweetAlert2( $title, $content, $type, $args );
+		return new \SweetAlert2( $title, $content, $type );
 	}
 
 	/**
