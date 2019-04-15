@@ -1,31 +1,183 @@
 <?php
 /**
  *
- * Initial version created 24-07-2018 / 04:33 PM
- *
  * @author Varun Sridharan <varunsridharan23@gmail.com>
  * @version 1.0
  * @since 1.0
- * @package
- * @link
- * @copyright 2018 Varun Sridharan
+ * @link https://github.com/varunsridharan/sweetalert2-php
+ * @copyright 2019 Varun Sridharan
  * @license GPLV3 Or Greater (https://www.gnu.org/licenses/gpl-3.0.txt)
  */
 
-if ( ! class_exists( 'SweetAlert2' ) ) {
+if ( ! class_exists( 'SweatAlert2' ) ) {
 	/**
-	 * Class SweetAlert2
+	 * Class SweatAlert2
 	 *
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.0
+	 *
+	 * @method title
+	 * @method titleText
+	 * @method html
+	 * @method text
+	 * @method type
+	 * @method footer
+	 * @method backdrop
+	 * @method toast
+	 * @method target
+	 * @method input
+	 * @method width
+	 * @method padding
+	 * @method background
+	 * @method position
+	 * @method grow
+	 * @method customClass
+	 * @method timer
+	 * @method animation
+	 * @method heightAuto
+	 * @method allowOutsideClick
+	 * @method allowEscapeKey
+	 * @method allowEnterKey
+	 * @method stopKeydownPropagation
+	 * @method keydownListenerCapture
+	 * @method showConfirmButton
+	 * @method showCancelButton
+	 * @method confirmButtonText
+	 * @method cancelButtonText
+	 * @method confirmButtonColor
+	 * @method cancelButtonColor
+	 * @method confirmButtonAriaLabel
+	 * @method cancelButtonAriaLabel
+	 * @method buttonsStyling
+	 * @method reverseButtons
+	 * @method focusConfirm
+	 * @method focusCancel
+	 * @method showCloseButton
+	 * @method closeButtonAriaLabel
+	 * @method showLoaderOnConfirm
+	 * @method scrollbarPadding
+	 * @method preConfirm
+	 * @method imageUrl
+	 * @method imageWidth
+	 * @method imageHeight
+	 * @method imageAlt
+	 * @method inputPlaceholder
+	 * @method inputValue
+	 * @method inputOptions
+	 * @method inputAutoTrim
+	 * @method inputAttributes
+	 * @method inputValidator
+	 * @method validationMesage
+	 * @method progressSteps
+	 * @method currentProgressStep
+	 * @method progressStepsDistance
+	 * @method onBeforeOpen
+	 * @method onOpen
+	 * @method onClose
+	 * @method onAfterClose
+	 *
+	 * Custom Methods
+	 * @method warning
+	 * @method success
+	 * @method error
+	 * @method question
+	 * @method info
 	 */
-	class SweetAlert2 implements \JsonSerializable {
+	class SweatAlert2 implements \JsonSerializable {
 		/**
-		 * json_data
+		 * Stores Default Values
 		 *
 		 * @var array
+		 * @access private
+		 * @static
 		 */
-		protected $json_data = array();
+		private $defaults = array(
+			'title'                  => true,
+			'titleText'              => true,
+			'html'                   => true,
+			'text'                   => true,
+			'type'                   => true,
+			'footer'                 => true,
+			'backdrop'               => true,
+			'toast'                  => true,
+			'target'                 => true,
+			'input'                  => true,
+			'width'                  => true,
+			'padding'                => true,
+			'background'             => true,
+			'position'               => true,
+			'grow'                   => true,
+			'customClass'            => true,
+			'timer'                  => true,
+			'animation'              => true,
+			'heightAuto'             => true,
+			'allowOutsideClick'      => true,
+			'allowEscapeKey'         => true,
+			'allowEnterKey'          => true,
+			'stopKeydownPropagation' => true,
+			'keydownListenerCapture' => true,
+			'showConfirmButton'      => true,
+			'showCancelButton'       => true,
+			'confirmButtonText'      => true,
+			'cancelButtonText'       => true,
+			'confirmButtonColor'     => true,
+			'cancelButtonColor'      => true,
+			'confirmButtonAriaLabel' => true,
+			'cancelButtonAriaLabel'  => true,
+			'buttonsStyling'         => true,
+			'reverseButtons'         => true,
+			'focusConfirm'           => true,
+			'focusCancel'            => true,
+			'showCloseButton'        => true,
+			'closeButtonAriaLabel'   => true,
+			'showLoaderOnConfirm'    => true,
+			'scrollbarPadding'       => true,
+			'preConfirm'             => true,
+			'imageUrl'               => true,
+			'imageWidth'             => true,
+			'imageHeight'            => true,
+			'imageAlt'               => true,
+			'inputPlaceholder'       => true,
+			'inputValue'             => true,
+			'inputOptions'           => true,
+			'inputAutoTrim'          => true,
+			'inputAttributes'        => true,
+			'inputValidator'         => true,
+			'validationMesage'       => true,
+			'progressSteps'          => true,
+			'currentProgressStep'    => true,
+			'progressStepsDistance'  => true,
+			'onBeforeOpen'           => true,
+			'onOpen'                 => true,
+			'onClose'                => true,
+			'onAfterClose'           => true,
+
+			/**
+			 * Custom Configs.
+			 */
+
+			'warning'  => 'type',
+			'success'  => 'type',
+			'error'    => 'type',
+			'question' => 'type',
+			'info'     => 'type',
+		);
+
+		/**
+		 * Stores Thens.
+		 *
+		 * @var array
+		 * @access
+		 */
+		private $then = array();
+
+		/**
+		 * Stores Current Instance Config.
+		 *
+		 * @var array
+		 * @access
+		 */
+		private $config = array();
 
 		/**
 		 * before
@@ -42,71 +194,42 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		protected $after = '';
 
 		/**
-		 * then
+		 * Stores Encoded Values.
 		 *
-		 * @var array
+		 * @var bool
+		 * @access
 		 */
-		protected $then = array();
+		private $encoded = false;
+
+		/**
+		 * SweatAlert2 constructor.
+		 *
+		 * @param string $title
+		 * @param string $text
+		 * @param string $type
+		 */
+		public function __construct( $title = '', $text = '', $type = 'success' ) {
+			$this->data( 'title', $title )
+				->data( 'text', $text )
+				->data( 'type', $type );
+		}
+
+		/**
+		 * @param string $title
+		 * @param string $text
+		 * @param string $type
+		 *
+		 * @return \SweatAlert2
+		 */
+		public function swal( $title = '', $text = '', $type = 'success' ) {
+			return new self( $title, $text, $type );
+		}
 
 		/**
 		 * @return mixed|string
 		 */
 		public function jsonSerialize() {
 			return $this->render();
-		}
-
-		/**
-		 * SweetAlert2 constructor.
-		 *
-		 * @param string $title
-		 * @param string $content
-		 * @param string $type
-		 * @param array  $args
-		 */
-		public function __construct( $title = '', $content = '', $type = 'success', $args = array() ) {
-			$this->title( $title );
-			$this->content( $content );
-			$this->type( $type );
-			$this->handle_bulk_data( $args );
-			return $this;
-		}
-
-		/**
-		 * @param $args
-		 */
-		private function handle_bulk_data( $args ) {
-			foreach ( $args as $key => $values ) {
-				if ( method_exists( $this, $key ) ) {
-					$callback = ( is_array( $values ) ) ? 'call_user_func_array' : 'call_user_func';
-					$callback( array( &$this, $key ), $values );
-				} else {
-					$this->json_data( $key, $values );
-				}
-			}
-		}
-
-		/**
-		 * @param string $key
-		 * @param null   $value
-		 *
-		 * @return $this
-		 */
-		protected function json_data( $key = '', $value = null ) {
-			if ( ! is_array( $value ) ) {
-				$this->json_data[ $key ] = $value;
-			} else {
-				$this->handle_bulk_data( $value );
-			}
-			return $this;
-		}
-
-		/**
-		 * @param $key
-		 *
-		 * @return bool|mixed
-		 */
-		protected function data( $key ) {
-			return ( isset( $this->json_data[ $key ] ) ) ? $this->json_data[ $key ] : false;
 		}
 
 		/**
@@ -117,20 +240,49 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		}
 
 		/**
+		 * Returns Encoded Values.
+		 *
 		 * @return false|string
 		 */
 		public function to_json() {
-			return wp_json_encode( $this->json_data );
+			if ( false === $this->encoded ) {
+				$this->encoded = json_encode( $this->config );
+			}
+			return $this->encoded;
 		}
 
 		/**
+		 * Stores Value.
+		 *
+		 * @param string $key
+		 * @param mixed  $value
+		 *
+		 * @return $this
+		 */
+		protected function data( $key = '', $value = '' ) {
+			$this->config[ $key ] = $value;
+			return $this;
+		}
+
+		/**
+		 * Returns Javascript Variable Name.
+		 *
+		 * @return string
+		 */
+		protected function get_variable_name() {
+			return 'swal2_' . md5( $this->to_json() . '-' . microtime() );
+		}
+
+		/**
+		 * Renders Output.
+		 *
 		 * @return string
 		 */
 		public function render() {
-			$json     = $this->to_json();
+			$variable = $this->get_variable_name();
 			$output   = $this->before;
-			$variable = 'swal' . md5( $json );
-			$output   = $output . ' var ' . $variable . ' = swal(' . $this->to_json() . ')';
+			$output   .= 'var ' . $variable . ' =  ';
+			$output   .= 'Swal.fire(' . $this->to_json() . ')';
 
 			if ( ! empty( $this->then ) ) {
 				foreach ( $this->then as $data ) {
@@ -140,171 +292,38 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 					$output .= '.then((result) => {' . $data . '})';
 				}
 			}
+
 			return $output . ';' . $this->after;
 		}
 
 		/**
-		 * @param null $title
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function title( $title = null ) {
-			return $this->json_data( 'title', $title );
-		}
-
-		/**
-		 * @param null $content
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function content( $content = null ) {
-			return $this->json_data( 'text', $content );
-		}
-
-		/**
-		 * @param string $notice_type
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function type( $notice_type = 'success' ) {
-			return $this->json_data( 'type', $notice_type );
-		}
-
-		/**
-		 * @param null $content
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function footer( $content = null ) {
-			return $this->json_data( 'footer', $content );
-		}
-
-		/**
-		 * @param bool $url
-		 * @param null $height
-		 * @param null $alt
+		 * @param $name
+		 * @param $arguments
 		 *
 		 * @return $this
 		 */
-		public function image( $url = false, $height = null, $alt = null ) {
-			if ( false === $url && null === $height && null == $alt ) {
-				$url    = $this->data( 'title' );
-				$height = $this->data( 'text' );
-				$alt    = $this->data( 'type' );
-				$this->title( false );
-				$this->content( false );
-				$this->type( false );
+		public function __call( $name, $arguments ) {
+			if ( isset( $this->defaults[ $name ] ) ) {
+				if ( true === $this->defaults[ $name ] ) {
+					$this->data( $name, $arguments[0] );
+				} else {
+					$arg = ( true === $arguments[0] ) ? $name : $arguments[0];
+					$this->data( $this->defaults[ $name ], $arg );
+				}
 			}
-			$this->json_data( 'imageUrl', $url );
-			$this->json_data( 'imageHeight', $height );
-			$this->json_data( 'imageAlt', $alt );
 			return $this;
 		}
 
 		/**
-		 * @param null $html_content
+		 * @param $name
 		 *
-		 * @return \SweetAlert2
+		 * @return mixed
 		 */
-		public function html( $html_content = null ) {
-			if ( null === $html_content ) {
-				$html_content = $this->data( 'text' );
-				$this->content( null );
+		public function __get( $name ) {
+			if ( isset( $this->config[ $name ] ) ) {
+				return $this->config[ $name ];
 			}
-			return $this->json_data( 'html', $html_content );
-		}
-
-		/**
-		 * @param bool $text
-		 * @param null $color
-		 * @param null $class
-		 * @param null $aria_label
-		 *
-		 * @return $this
-		 */
-		public function cancel_button( $text = false, $color = null, $class = null, $aria_label = null ) {
-			$is_show = true;
-			if ( false === $text ) {
-				$text       = null;
-				$color      = null;
-				$aria_label = null;
-				$class      = null;
-				$is_show    = false;
-			}
-
-			$this->json_data( 'cancelButtonText', $text );
-			$this->json_data( 'showCancelButton', $is_show );
-			$this->json_data( 'cancelButtonColor', $color );
-			$this->json_data( 'cancelButtonClass', $class );
-			$this->json_data( 'cancelButtonAriaLabel', $aria_label );
-			return $this;
-		}
-
-		/**
-		 * @param bool $text
-		 * @param null $color
-		 * @param null $class
-		 * @param null $aria_label
-		 *
-		 * @return $this
-		 */
-		public function confirm_button( $text = false, $color = null, $class = null, $aria_label = null ) {
-			$is_show = true;
-			if ( false === $text ) {
-				$text       = null;
-				$color      = null;
-				$aria_label = null;
-				$class      = null;
-				$is_show    = false;
-			}
-
-			$this->json_data( 'confirmButtonText', $text );
-			$this->json_data( 'showConfirmButton', $is_show );
-			$this->json_data( 'confirmButtonColor', $color );
-			$this->json_data( 'confirmButtonClass', $class );
-			$this->json_data( 'confirmButtonAriaLabel', $aria_label );
-			return $this;
-		}
-
-		/**
-		 * @return \SweetAlert2
-		 */
-		public function hide_cancel() {
-			return $this->json_data( 'showCancelButton', false );
-		}
-
-		/**
-		 * @return \SweetAlert2
-		 */
-		public function hide_confirm() {
-			return $this->json_data( 'showConfirmButton', false );
-		}
-
-		/**
-		 * @param string $position
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function position( $position = 'center' ) {
-			return $this->json_data( 'position', $position );
-		}
-
-		/**
-		 * @param bool $stats
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function animation( $stats = true ) {
-			return $this->json_data( 'animation', $stats );
-		}
-
-		/**
-		 * @param null $custom_class
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function custom_class( $custom_class = null ) {
-			return $this->json_data( 'customClass', $custom_class );
+			return null;
 		}
 
 		/**
@@ -324,136 +343,159 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		 * @return $this
 		 */
 		public function wrap( $before, $after ) {
-			$this->before = $before;
-			$this->after  = $after;
+			$this->before( $before );
+			$this->after( $after );
 			return $this;
 		}
 
 		/**
-		 * @param null $timer
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function auto_close( $timer = null ) {
-			return $this->json_data( 'timer', $timer );
-		}
-
-		/**
-		 * @param bool $status
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function buttons_styling( $status = true ) {
-			return $this->json_data( 'buttonsStyling', $status );
-		}
-
-		/**
-		 * @param $background
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function background( $background ) {
-			return $this->json_data( 'background', $background );
-		}
-
-		/**
-		 * @param $backdrop
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function backdrop( $backdrop ) {
-			return $this->json_data( 'backdrop', $backdrop );
-		}
-
-		/**
-		 * @param bool $grow
-		 *
-		 * @return \SweetAlert2
-		 */
-		public function grow( $grow = false ) {
-			return $this->json_data( 'grow', $grow );
-		}
-
-		/**
-		 * @param string $key
-		 * @param string $value
+		 * @param $before
 		 *
 		 * @return $this
 		 */
-		public function extra( $key = '', $value = '' ) {
-			if ( is_array( $key ) ) {
-				$this->handle_bulk_data( $key );
-			} else {
-				$this->handle_bulk_data( array( $key => $value ) );
-			}
+		public function before( $before ) {
+			$this->before = $before;
 			return $this;
 		}
+
+		/**
+		 * @param $after
+		 *
+		 * @return $this
+		 */
+		public function after( $after ) {
+			$this->after = $after;
+			return $this;
+		}
+
+		/**
+		 * @param bool $url
+		 * @param null $height
+		 * @param null $width
+		 * @param null $alt
+		 *
+		 * @return $this
+		 */
+		public function image( $url = false, $height = null, $width = null, $alt = null ) {
+			if ( false === $url && null === $height && null == $alt && null === $width ) {
+				$url    = $this->title;
+				$height = $this->text;
+				$alt    = $this->type;
+				$this->title( false );
+				$this->content( false );
+				$this->type( false );
+			}
+			$this->data( 'imageUrl', $url );
+			$this->data( 'imageHeight', $height );
+			$this->data( 'imageWidth', $width );
+			$this->data( 'imageAlt', $alt );
+			return $this;
+		}
+
+		/**
+		 * @param bool $text
+		 * @param null $color
+		 * @param null $aria_label
+		 *
+		 * @return $this
+		 */
+		public function cancelButton( $text = false, $color = null, $aria_label = null ) {
+			$is_show = true;
+			if ( false === $text ) {
+				$text       = null;
+				$color      = null;
+				$aria_label = null;
+				$is_show    = false;
+			}
+			$this->data( 'showCancelButton', $is_show );
+			$this->data( 'cancelButtonText', $text );
+			$this->data( 'cancelButtonColor', $color );
+			$this->data( 'cancelButtonAriaLabel', $aria_label );
+			return $this;
+		}
+
+		/**
+		 * @param bool $text
+		 * @param null $color
+		 * @param null $aria_label
+		 *
+		 * @return $this
+		 */
+		public function confirmButton( $text = false, $color = null, $aria_label = null ) {
+			$is_show = true;
+			if ( false === $text ) {
+				$text       = null;
+				$color      = null;
+				$aria_label = null;
+				$is_show    = false;
+			}
+			$this->data( 'confirmButtonText', $text );
+			$this->data( 'showConfirmButton', $is_show );
+			$this->data( 'confirmButtonColor', $color );
+			$this->data( 'confirmButtonAriaLabel', $aria_label );
+			return $this;
+		}
+
 	}
-}
 
-/**
- * @param string $title
- * @param string $content
- * @param string $type
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal( $title = '', $content = '', $type = 'success', $args = array() ) {
-	return new SweetAlert2( $title, $content, $type, $args );
-}
+	/**
+	 * @param string $title
+	 * @param string $content
+	 * @param string $type
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2( $title = '', $content = '', $type = 'success' ) {
+		return new \SweetAlert2( $title, $content, $type, $args );
+	}
 
-/**
- * @param string $title
- * @param string $content
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal_success( $title = '', $content = '', $args = array() ) {
-	return swal( $title, $content, 'success', $args );
-}
+	/**
+	 * @param string $title
+	 * @param string $content
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2_success( $title = '', $content = '' ) {
+		return swal2( $title, $content, 'success' );
+	}
 
-/**
- * @param string $title
- * @param string $content
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal_info( $title = '', $content = '', $args = array() ) {
-	return swal( $title, $content, 'info', $args );
-}
+	/**
+	 * @param string $title
+	 * @param string $content
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2_info( $title = '', $content = '' ) {
+		return swal2( $title, $content, 'info' );
+	}
 
-/**
- * @param string $title
- * @param string $content
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal_question( $title = '', $content = '', $args = array() ) {
-	return swal( $title, $content, 'question', $args );
-}
+	/**
+	 * @param string $title
+	 * @param string $content
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2_question( $title = '', $content = '' ) {
+		return swal2( $title, $content, 'question' );
+	}
 
-/**
- * @param string $title
- * @param string $content
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal_warning( $title = '', $content = '', $args = array() ) {
-	return swal( $title, $content, 'warning', $args );
-}
+	/**
+	 * @param string $title
+	 * @param string $content
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2_warning( $title = '', $content = '' ) {
+		return swal2( $title, $content, 'warning' );
+	}
 
-/**
- * @param string $title
- * @param string $content
- * @param array  $args
- *
- * @return \SweetAlert2
- */
-function swal_error( $title = '', $content = '', $args = array() ) {
-	return swal( $title, $content, 'error', $args );
+	/**
+	 * @param string $title
+	 * @param string $content
+	 *
+	 * @return \SweetAlert2
+	 */
+	function swal2_error( $title = '', $content = '' ) {
+		return swal2( $title, $content, 'error' );
+	}
 }
