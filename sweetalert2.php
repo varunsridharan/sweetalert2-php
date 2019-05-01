@@ -16,72 +16,72 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.0
 	 *
-	 * @method title
-	 * @method titleText
-	 * @method html
-	 * @method text
-	 * @method type
-	 * @method footer
-	 * @method backdrop
-	 * @method toast
-	 * @method target
-	 * @method input
-	 * @method width
-	 * @method padding
-	 * @method background
-	 * @method position
-	 * @method grow
-	 * @method customClass
-	 * @method timer
-	 * @method animation
-	 * @method heightAuto
-	 * @method allowOutsideClick
-	 * @method allowEscapeKey
-	 * @method allowEnterKey
-	 * @method stopKeydownPropagation
-	 * @method keydownListenerCapture
-	 * @method showConfirmButton
-	 * @method showCancelButton
-	 * @method confirmButtonText
-	 * @method cancelButtonText
-	 * @method confirmButtonColor
-	 * @method cancelButtonColor
-	 * @method confirmButtonAriaLabel
-	 * @method cancelButtonAriaLabel
-	 * @method buttonsStyling
-	 * @method reverseButtons
-	 * @method focusConfirm
-	 * @method focusCancel
-	 * @method showCloseButton
-	 * @method closeButtonAriaLabel
-	 * @method showLoaderOnConfirm
-	 * @method scrollbarPadding
-	 * @method preConfirm
-	 * @method imageUrl
-	 * @method imageWidth
-	 * @method imageHeight
-	 * @method imageAlt
-	 * @method inputPlaceholder
-	 * @method inputValue
-	 * @method inputOptions
-	 * @method inputAutoTrim
-	 * @method inputAttributes
-	 * @method inputValidator
-	 * @method validationMesage
-	 * @method progressSteps
-	 * @method currentProgressStep
-	 * @method progressStepsDistance
-	 * @method onBeforeOpen
-	 * @method onOpen
-	 * @method onClose
-	 * @method onAfterClose
+	 * @method \SweetAlert2 title( $title = null )
+	 * @method \SweetAlert2 titleText( $titleText = null )
+	 * @method \SweetAlert2 html( $html = null )
+	 * @method \SweetAlert2 text( $text = null )
+	 * @method \SweetAlert2 type( $type = null )
+	 * @method \SweetAlert2 footer( $footer = null )
+	 * @method \SweetAlert2 backdrop( $backdrop = true )
+	 * @method \SweetAlert2 toast( $toast = false )
+	 * @method \SweetAlert2 target( $target = 'body' )
+	 * @method \SweetAlert2 input( $input = null )
+	 * @method \SweetAlert2 width( $width = null )
+	 * @method \SweetAlert2 padding( $padding = null )
+	 * @method \SweetAlert2 background( $background = null )
+	 * @method \SweetAlert2 position( $position = 'center' )
+	 * @method \SweetAlert2 grow( $grow = false )
+	 * @method \SweetAlert2 customClass( $customClass = array() )
+	 * @method \SweetAlert2 timer( $timer = null )
+	 * @method \SweetAlert2 animation( $animation = true )
+	 * @method \SweetAlert2 heightAuto( $heightAuto = true )
+	 * @method \SweetAlert2 allowOutsideClick( $allowOutsideClick = true )
+	 * @method \SweetAlert2 allowEscapeKey( $allowEscapeKey = true )
+	 * @method \SweetAlert2 allowEnterKey( $allowEnterKey = true )
+	 * @method \SweetAlert2 stopKeydownPropagation( $stopKeydownPropagation = true )
+	 * @method \SweetAlert2 keydownListenerCapture( $keydownListenerCapture = true )
+	 * @method \SweetAlert2 showConfirmButton( $showConfirmButton = true )
+	 * @method \SweetAlert2 showCancelButton( $showCancelButton = false )
+	 * @method \SweetAlert2 confirmButtonText( $confirmButtonText = 'OK' )
+	 * @method \SweetAlert2 cancelButtonText( $cancelButtonText = 'Cancel' )
+	 * @method \SweetAlert2 confirmButtonColor( $confirmButtonColor = null )
+	 * @method \SweetAlert2 cancelButtonColor( $cancelButtonColor = null )
+	 * @method \SweetAlert2 confirmButtonAriaLabel( $confirmButtonAriaLabel = '' )
+	 * @method \SweetAlert2 cancelButtonAriaLabel( $cancelButtonAriaLabel = '' )
+	 * @method \SweetAlert2 buttonsStyling( $buttonsStyling = true )
+	 * @method \SweetAlert2 reverseButtons( $reverseButtons = false )
+	 * @method \SweetAlert2 focusConfirm( $focusConfirm = true )
+	 * @method \SweetAlert2 focusCancel( $focusCancel = false )
+	 * @method \SweetAlert2 showCloseButton( $showCloseButton = false )
+	 * @method \SweetAlert2 closeButtonAriaLabel( $closeButtonAriaLabel = 'Close this dialog' )
+	 * @method \SweetAlert2 showLoaderOnConfirm( $showLoaderOnConfirm = false )
+	 * @method \SweetAlert2 scrollbarPadding( $scrollbarPadding = true )
+	 * @method \SweetAlert2 preConfirm( $preConfirm = null )
+	 * @method \SweetAlert2 imageUrl( $imageUrl = null )
+	 * @method \SweetAlert2 imageWidth( $imageWidth = null )
+	 * @method \SweetAlert2 imageHeight( $imageHeight = null )
+	 * @method \SweetAlert2 imageAlt( $imageAlt = '' )
+	 * @method \SweetAlert2 inputPlaceholder( $inputPlaceholder = '' )
+	 * @method \SweetAlert2 inputValue( $inputValue = '' )
+	 * @method \SweetAlert2 inputOptions( $inputOptions = array() )
+	 * @method \SweetAlert2 inputAutoTrim( $inputAutoTrim = true )
+	 * @method \SweetAlert2 inputAttributes( $inputAttributes = array() )
+	 * @method \SweetAlert2 inputValidator( $inputValidator = null )
+	 * @method \SweetAlert2 validationMesage( $validationMesage = null )
+	 * @method \SweetAlert2 progressSteps( $progressSteps = array() )
+	 * @method \SweetAlert2 currentProgressStep( $currentProgressStep = null )
+	 * @method \SweetAlert2 progressStepsDistance( $progressStepsDistance = '40px' )
+	 * @method \SweetAlert2 onBeforeOpen( $onBeforeOpen = null )
+	 * @method \SweetAlert2 onOpen( $onOpen = null )
+	 * @method \SweetAlert2 onClose( $onClose = null )
+	 * @method \SweetAlert2 onAfterClose( $onAfterClose = null )
 	 *
 	 * Custom Methods
-	 * @method warning
-	 * @method success
-	 * @method error
-	 * @method question
-	 * @method info
+	 * @method \SweetAlert2 warning( $warning = true )
+	 * @method \SweetAlert2 success( $success = true )
+	 * @method \SweetAlert2 error( $error = true )
+	 * @method \SweetAlert2 question( $question = true )
+	 * @method \SweetAlert2 info( $info = true )
 	 */
 	class SweetAlert2 implements \JsonSerializable {
 		/**
@@ -202,7 +202,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		private $encoded = false;
 
 		/**
-		 * SweatAlert2 constructor.
+		 * SweetAlert2 constructor.
 		 *
 		 * @param string $title
 		 * @param string $text
