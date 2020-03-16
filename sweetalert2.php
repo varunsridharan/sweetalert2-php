@@ -1,11 +1,9 @@
 <?php
 /**
+ * SweetAlert2 Tested With : 9.10.1
  *
  * @author Varun Sridharan <varunsridharan23@gmail.com>
- * @version 1.0
- * @since 1.0
  * @link https://github.com/varunsridharan/sweetalert2-php
- * @copyright 2019 Varun Sridharan
  * @license GPLV3 Or Greater (https://www.gnu.org/licenses/gpl-3.0.txt)
  */
 
@@ -21,6 +19,8 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 html( $html = null )
 	 * @method \SweetAlert2 text( $text = null )
 	 * @method \SweetAlert2 type( $type = null )
+	 * @method \SweetAlert2 icon( $icon = null )
+	 * @method \SweetAlert2 iconHtml( $iconHtml = null )
 	 * @method \SweetAlert2 footer( $footer = null )
 	 * @method \SweetAlert2 backdrop( $backdrop = true )
 	 * @method \SweetAlert2 toast( $toast = false )
@@ -33,6 +33,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 grow( $grow = false )
 	 * @method \SweetAlert2 customClass( $customClass = array() )
 	 * @method \SweetAlert2 timer( $timer = null )
+	 * @method \SweetAlert2 timerProgressBar( $timerProgressBar = null )
 	 * @method \SweetAlert2 animation( $animation = true )
 	 * @method \SweetAlert2 heightAuto( $heightAuto = true )
 	 * @method \SweetAlert2 allowOutsideClick( $allowOutsideClick = true )
@@ -53,6 +54,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 focusConfirm( $focusConfirm = true )
 	 * @method \SweetAlert2 focusCancel( $focusCancel = false )
 	 * @method \SweetAlert2 showCloseButton( $showCloseButton = false )
+	 * @method \SweetAlert2 closeButtonHtml( $closeButtonHtml = false )
 	 * @method \SweetAlert2 closeButtonAriaLabel( $closeButtonAriaLabel = 'Close this dialog' )
 	 * @method \SweetAlert2 showLoaderOnConfirm( $showLoaderOnConfirm = false )
 	 * @method \SweetAlert2 scrollbarPadding( $scrollbarPadding = true )
@@ -74,7 +76,9 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 onBeforeOpen( $onBeforeOpen = null )
 	 * @method \SweetAlert2 onOpen( $onOpen = null )
 	 * @method \SweetAlert2 onClose( $onClose = null )
+	 * @method \SweetAlert2 onRender( $onRender = null )
 	 * @method \SweetAlert2 onAfterClose( $onAfterClose = null )
+	 * @method \SweetAlert2 onDestroy( $onDestroy = null )
 	 * Custom Methods
 	 * @method \SweetAlert2 warning( $warning = true )
 	 * @method \SweetAlert2 success( $success = true )
