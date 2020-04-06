@@ -1,6 +1,6 @@
 <?php
 /**
- * SweetAlert2 Tested With : 9.10.1
+ * SweetAlert2 Tested With : 9.10.9
  *
  * @author Varun Sridharan <varunsridharan23@gmail.com>
  * @link https://github.com/varunsridharan/sweetalert2-php
