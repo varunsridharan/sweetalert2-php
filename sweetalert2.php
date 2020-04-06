@@ -135,7 +135,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 		public function __construct( $title = '', $text = '', $type = 'success' ) {
 			$this->data( 'title', $title );
 			$this->data( 'text', $text );
-			$this->data( 'type', $type );
+			$this->data( 'icon', $type );
 		}
 
 		/**
