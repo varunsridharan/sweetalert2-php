@@ -9,7 +9,7 @@
 	"wiki"   : "https://github.com/varunsridharan/sweetalert2-php/wiki/"
   },
   "homepage"    : "https://github.com/varunsridharan/sweetalert2-php/",
-  "license"     : "GPL-3.0-or-later",
+  "license"     : "MIT",
   "keywords"    : [
 	"sweetalert",
 	"php",
