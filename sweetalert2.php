@@ -1,10 +1,10 @@
 <?php
 /**
- * SweetAlert2 Tested With : 9.10.9
+ * SweetAlert2 Tested With : 10.12.2
  *
  * @author Varun Sridharan <varunsridharan23@gmail.com>
  * @link https://github.com/varunsridharan/sweetalert2-php
- * @license GPLV3 Or Greater (https://www.gnu.org/licenses/gpl-3.0.txt)
+ * @license MIT
  */
 
 if ( ! class_exists( 'SweetAlert2' ) ) {
@@ -21,6 +21,7 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 type( $type = null )
 	 * @method \SweetAlert2 icon( $icon = null )
 	 * @method \SweetAlert2 iconHtml( $iconHtml = null )
+	 * @method \SweetAlert2 iconColor( $iconColor = null )
 	 * @method \SweetAlert2 footer( $footer = null )
 	 * @method \SweetAlert2 backdrop( $backdrop = true )
 	 * @method \SweetAlert2 toast( $toast = false )
@@ -34,7 +35,6 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 customClass( $customClass = array() )
 	 * @method \SweetAlert2 timer( $timer = null )
 	 * @method \SweetAlert2 timerProgressBar( $timerProgressBar = null )
-	 * @method \SweetAlert2 animation( $animation = true )
 	 * @method \SweetAlert2 heightAuto( $heightAuto = true )
 	 * @method \SweetAlert2 allowOutsideClick( $allowOutsideClick = true )
 	 * @method \SweetAlert2 allowEscapeKey( $allowEscapeKey = true )
@@ -69,16 +69,19 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 	 * @method \SweetAlert2 inputAutoTrim( $inputAutoTrim = true )
 	 * @method \SweetAlert2 inputAttributes( $inputAttributes = array() )
 	 * @method \SweetAlert2 inputValidator( $inputValidator = null )
+	 * @method \SweetAlert2 inputLabel( $inputLabel = null )
+	 * @method \SweetAlert2 returnInputValueOnDeny( $returnInputValueOnDeny = null )
+	 * @method \SweetAlert2 preDeny( $preDeny = null )
 	 * @method \SweetAlert2 validationMesage( $validationMesage = null )
 	 * @method \SweetAlert2 progressSteps( $progressSteps = array() )
 	 * @method \SweetAlert2 currentProgressStep( $currentProgressStep = null )
 	 * @method \SweetAlert2 progressStepsDistance( $progressStepsDistance = '40px' )
-	 * @method \SweetAlert2 onBeforeOpen( $onBeforeOpen = null )
-	 * @method \SweetAlert2 onOpen( $onOpen = null )
-	 * @method \SweetAlert2 onClose( $onClose = null )
-	 * @method \SweetAlert2 onRender( $onRender = null )
-	 * @method \SweetAlert2 onAfterClose( $onAfterClose = null )
-	 * @method \SweetAlert2 onDestroy( $onDestroy = null )
+	 * @method \SweetAlert2 willOpen( $willOpen = null )
+	 * @method \SweetAlert2 didOpen( $didOpen = null )
+	 * @method \SweetAlert2 didRender( $didRender = null )
+	 * @method \SweetAlert2 willClose( $willClose = null )
+	 * @method \SweetAlert2 didClose( $didClose = null )
+	 * @method \SweetAlert2 didDestroy( $didDestroy = null )
 	 * Custom Methods
 	 * @method \SweetAlert2 warning( $warning = true )
 	 * @method \SweetAlert2 success( $success = true )
@@ -330,6 +333,76 @@ if ( ! class_exists( 'SweetAlert2' ) ) {
 			$this->data( 'confirmButtonColor', $color );
 			$this->data( 'confirmButtonAriaLabel', $aria_label );
 			return $this;
+		}
+
+		/**
+		 * @param bool $animation
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function animation( $animation = true ) {
+			return $this->data( 'animation', $animation );
+		}
+
+		/**
+		 * @param mixed $onBeforeOpen
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onBeforeOpen( $onBeforeOpen = null ) {
+			return $this->data( 'onBeforeOpen', $onBeforeOpen );
+		}
+
+		/**
+		 * @param mixed $onOpen
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onOpen( $onOpen = null ) {
+			return $this->data( 'onOpen', $onOpen );
+		}
+
+		/**
+		 * @param mixed $onOpen
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onRender( $onRender = null ) {
+			return $this->data( 'onRender', $onRender );
+		}
+
+		/**
+		 * @param mixed $onClose
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onClose( $onClose = null ) {
+			return $this->data( 'onClose', $onClose );
+		}
+
+		/**
+		 * @param mixed $onAfterClose
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onAfterClose( $onAfterClose = null ) {
+			return $this->data( 'onAfterClose', $onAfterClose );
+		}
+
+		/**
+		 * @param mixed $onDestroy
+		 *
+		 * @return $this
+		 * @deprecated
+		 */
+		public function onDestroy( $onDestroy = null ) {
+			return $this->data( 'onDestroy', $onDestroy );
 		}
 	}
 
