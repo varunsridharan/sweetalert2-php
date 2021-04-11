@@ -136,37 +136,15 @@ Useful Functions
  swal2_error( $title = '', $content = '' )
  ```
 
-## Contribute
-If you would like to help, please take a look at the list of
-[issues][issues] or the [To Do](#-todo) checklist.
 
-## License
-This project is licensed under **General Public License v3.0 license**. See the [LICENSE](LICENSE) file for more info.
+---
 
-## Copyright
-2017 - 2018 Varun Sridharan, [varunsridharan.in][website]
+<!-- START common-footer.mustache  -->
 
-If you find it useful, let me know :wink:
+<!-- END common-footer.mustache  -->
 
-You can contact me on [Twitter][twitter] or through my [email][email].
-
-## Backed By
-| [![DigitalOcean][do-image]][do-ref] | [![JetBrains][jb-image]][jb-ref] |  [![Tidio Chat][tidio-image]][tidio-ref] |
-| --- | --- | --- |
-
-[twitter]: https://twitter.com/varunsridharan2
-[email]: mailto:varunsridharan23@gmail.com
-[website]: https://varunsridharan.in
-[issues]: issues/
 [composer]: http://getcomposer.org/download/
 [downloadzip]:https://github.com/varunsridharan/sweetalert2-php/archive/master.zip
-
-[do-image]: https://vsp.ams3.cdn.digitaloceanspaces.com/cdn/DO_Logo_Horizontal_Blue-small.png
-[jb-image]: https://vsp.ams3.cdn.digitaloceanspaces.com/cdn/phpstorm-small.png?v3
-[tidio-image]: https://vsp.ams3.cdn.digitaloceanspaces.com/cdn/tidiochat-small.png
-[do-ref]: https://s.svarun.in/Ef
-[jb-ref]: https://www.jetbrains.com
-[tidio-ref]: https://tidiochat.com
 
 [latest-stable-version-img]: https://poser.pugx.org/varunsridharan/sweetalert2-php/version
 [latest-Unstable-version-img]: https://poser.pugx.org/varunsridharan/sweetalert2-php/v/unstable
